@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Convert.hpp                                                                    *
+ * Convert.hpp                                                                 *
  *                                                                             *
  * Copyright (c) 2015 Tory Gaurnier                                            *
  *                                                                             *

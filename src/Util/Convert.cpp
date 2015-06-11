@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Convert.cpp                                                                    *
+ * Convert.cpp                                                                 *
  *                                                                             *
  * Copyright (c) 2015 Tory Gaurnier                                            *
  *                                                                             *
@@ -20,7 +20,7 @@ float Convert::pixels_per_meter = 0.0f;
 
 
 /* * * * * * * * * * * * *
- * Static Public Methods *
+ * STATIC PUBLIC METHODS *
  * * * * * * * * * * * * */
 
 
