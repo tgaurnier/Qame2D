@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Makefile                                                                    *
+ * World.hpp                                                                    *
  *                                                                             *
  * Copyright (c) 2015 Tory Gaurnier                                            *
  *                                                                             *

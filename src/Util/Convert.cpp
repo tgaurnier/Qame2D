@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Makefile                                                                    *
+ * Convert.cpp                                                                    *
  *                                                                             *
  * Copyright (c) 2015 Tory Gaurnier                                            *
  *                                                                             *
