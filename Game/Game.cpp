@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Game.cpp                                                                   *
+ * Game.cpp                                                                    *
  *                                                                             *
  * Copyright (c) 2015 Tory Gaurnier                                            *
  *                                                                             *
