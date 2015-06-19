@@ -10,8 +10,8 @@
 
 #include "Game.hpp"
 
-#include "Event/GameEvent.hpp"
-#include "Event/GameEventManager.hpp"
+#include "../Event/GameEvent.hpp"
+#include "../Event/GameEventManager.hpp"
 
 
 Game::Game() {
