@@ -19,7 +19,7 @@ class Convert {
 	public:
 		Convert() = delete;
 
-		static void init(float meters_per_screen_height);
+		static void init(float meters_per_screen_height = 10.0f);
 		static float metersToPixels(float meters);
 		static float pixelsToMeters(float pixels);
 		static b2Vec2 screenToWorldPos(b2Vec2 screen_pos);
