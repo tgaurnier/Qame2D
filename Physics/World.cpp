@@ -14,220 +14,203 @@
 #include <QDebug>
 
 
-b2World *World::world				=	nullptr;
-float32 World::time_step			=	0.0f;
-int32 World::velocity_iterations	=	0;
-int32 World::position_iterations	=	0;
-
-
-void World::init(
+World::World(
 	b2Vec2 gravity,
 	float32 time_step,
 	int32 velocity_iterations,
 	int32 position_iterations
-) {
-	if(world == nullptr) {
-		World::world				=	new b2World(gravity);
-		World::time_step			=	time_step;
-		World::velocity_iterations	=	velocity_iterations;
-		World::position_iterations	=	position_iterations;
-	}
-}
-
-
-void World::destroy() {
-	if(world != nullptr) {
-		delete world;
-		world = nullptr;
-	}
-}
+) :
+	b2World(gravity),
+	time_step(time_step),
+	velocity_iterations(velocity_iterations),
+	position_iterations(position_iterations) { }
 
 
 void World::clearForces() {
-	world->ClearForces();
+	b2World::ClearForces();
 }
 
 
 b2Body * World::createBody(const b2BodyDef *body_def) {
-	return world->CreateBody(body_def);
+	return b2World::CreateBody(body_def);
 }
 
 
 b2Joint * World::createJoint(const b2JointDef *joint_def) {
-	return world->CreateJoint(joint_def);
+	return b2World::CreateJoint(joint_def);
 }
 
 
 void World::destroyBody(b2Body *body) {
-	world->DestroyBody(body);
+	b2World::DestroyBody(body);
 }
 
 
 void World::destroyJoint(b2Joint *joint) {
-	world->DestroyJoint(joint);
+	b2World::DestroyJoint(joint);
 }
 
 
 void World::dump() {
-	world->Dump();
+	b2World::Dump();
 }
 
 
 bool World::getAllowSleeping() {
-	return world->GetAllowSleeping();
+	return b2World::GetAllowSleeping();
 }
 
 
 bool World::getAutoClearForces() {
-	return world->GetAutoClearForces();
+	return b2World::GetAutoClearForces();
 }
 
 
 int32 World::getBodyCount() {
-	return world->GetBodyCount();
+	return b2World::GetBodyCount();
 }
 
 
 b2Body * World::getBodyList() {
-	return world->GetBodyList();
+	return b2World::GetBodyList();
 }
 
 
 int32 World::getContactCount() {
-	return world->GetContactCount();
+	return b2World::GetContactCount();
 }
 
 
 b2Contact * World::getContactList() {
-	return world->GetContactList();
+	return b2World::GetContactList();
 }
 
 
 const b2ContactManager & World::getContactManager() {
-	return world->GetContactManager();
+	return b2World::GetContactManager();
 }
 
 
 bool World::getContinuousPhysics() {
-	return world->GetContinuousPhysics();
+	return b2World::GetContinuousPhysics();
 }
 
 
 b2Vec2 World::getGravity() {
-	return world->GetGravity();
+	return b2World::GetGravity();
 }
 
 
 int32 World::getJointCount() {
-	return world->GetJointCount();
+	return b2World::GetJointCount();
 }
 
 
 b2Joint * World::getJointList() {
-	return world->GetJointList();
+	return b2World::GetJointList();
 }
 
 
 const b2Profile & World::getProfile() {
-	return world->GetProfile();
+	return b2World::GetProfile();
 }
 
 
 int32 World::getProxyCount() {
-	return world->GetProxyCount();
+	return b2World::GetProxyCount();
 }
 
 
 bool World::getSubStepping() {
-	return world->GetSubStepping();
+	return b2World::GetSubStepping();
 }
 
 
 int32 World::getTreeHeight() {
-	return world->GetTreeHeight();
+	return b2World::GetTreeHeight();
 }
 
 
 int32 World::getTreeBalance() {
-	return world->GetTreeBalance();
+	return b2World::GetTreeBalance();
 }
 
 
 float32 World::getTreeQuality() {
-	return world->GetTreeQuality();
+	return b2World::GetTreeQuality();
 }
 
 
 bool World::getWarmStarting() {
-	return world->GetWarmStarting();
+	return b2World::GetWarmStarting();
 }
 
 
 bool World::isLocked() {
-	return world->IsLocked();
+	return b2World::IsLocked();
 }
 
 
 void World::queryAABB(b2QueryCallback *callback, const b2AABB &aabb) {
-	world->QueryAABB(callback, aabb);
+	b2World::QueryAABB(callback, aabb);
 }
 
 
 void World::rayCast(b2RayCastCallback *callback, const b2Vec2 &point1, const b2Vec2 &point2) {
-	world->RayCast(callback, point1, point2);
+	b2World::RayCast(callback, point1, point2);
 }
 
 
 void World::setAllowSleeping(bool flag) {
-	world->SetAllowSleeping(flag);
+	b2World::SetAllowSleeping(flag);
 }
 
 
 void World::setAutoClearForces(bool flag) {
-	world->SetAutoClearForces(flag);
+	b2World::SetAutoClearForces(flag);
 }
 
 
 void World::setContactFilter(b2ContactFilter *filter) {
-	world->SetContactFilter(filter);
+	b2World::SetContactFilter(filter);
 }
 
 
 void World::setContactListener(b2ContactListener *listener) {
-	world->SetContactListener(listener);
+	b2World::SetContactListener(listener);
 }
 
 
 void World::setContinuousPhysics(bool flag) {
-	world->SetContinuousPhysics(flag);
+	b2World::SetContinuousPhysics(flag);
 }
 
 
 void World::setDestructionListener(b2DestructionListener *listener) {
-	world->SetDestructionListener(listener);
+	b2World::SetDestructionListener(listener);
 }
 
 
 void World::setGravity(const b2Vec2 &gravity) {
-	world->SetGravity(gravity);
+	b2World::SetGravity(gravity);
 }
 
 
 void World::setSubStepping(bool flag) {
-	world->SetSubStepping(flag);
+	b2World::SetSubStepping(flag);
 }
 
 
 void World::setWarmStarting(bool flag) {
-	world->SetWarmStarting(flag);
+	b2World::SetWarmStarting(flag);
 }
 
 
 void World::shiftOrigin(const b2Vec2 &new_origin) {
-	world->ShiftOrigin(new_origin);
+	b2World::ShiftOrigin(new_origin);
 }
 
 
 void World::step() {
-	world->Step(time_step, velocity_iterations, position_iterations);
+	b2World::Step(time_step, velocity_iterations, position_iterations);
 }

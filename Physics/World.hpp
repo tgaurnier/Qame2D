@@ -15,9 +15,9 @@
 #include <Box2D/Box2D.h>
 
 
-class World {
+class World : private b2World {
 	public:
-		static void init(
+		World(
 			b2Vec2 gravity,
 			float32 time_step,
 			int32 velocity_iterations,
@@ -25,135 +25,124 @@ class World {
 		);
 
 
-		static void destroy();
+		void clearForces();
 
 
-		static void clearForces();
+		b2Body * createBody(const b2BodyDef *body_def);
 
 
-		static b2Body * createBody(const b2BodyDef *body_def);
+		b2Joint * createJoint(const b2JointDef *joint_def);
 
 
-		static b2Joint * createJoint(const b2JointDef *joint_def);
+		void destroyBody(b2Body *body);
 
 
-		static void destroyBody(b2Body *body);
+		void destroyJoint(b2Joint *joint);
 
 
-		static void destroyJoint(b2Joint *joint);
+		void dump();
 
 
-		static void dump();
+		bool getAllowSleeping();
 
 
-		static bool getAllowSleeping();
+		bool getAutoClearForces();
 
 
-		static bool getAutoClearForces();
+		int32 getBodyCount();
 
 
-		static int32 getBodyCount();
+		b2Body * getBodyList();
 
 
-		static b2Body * getBodyList();
+		int32 getContactCount();
 
 
-		static int32 getContactCount();
+		b2Contact * getContactList();
 
 
-		static b2Contact * getContactList();
+		const b2ContactManager & getContactManager();
 
 
-		static const b2ContactManager & getContactManager();
+		bool getContinuousPhysics();
 
 
-		static bool getContinuousPhysics();
+		b2Vec2 getGravity();
 
 
-		static b2Vec2 getGravity();
+		int32 getJointCount();
 
 
-		static int32 getJointCount();
+		b2Joint * getJointList();
 
 
-		static b2Joint * getJointList();
+		const b2Profile & getProfile();
 
 
-		static const b2Profile & getProfile();
+		int32 getProxyCount();
 
 
-		static int32 getProxyCount();
+		bool getSubStepping();
 
 
-		static bool getSubStepping();
+		int32 getTreeHeight();
 
 
-		static int32 getTreeHeight();
+		int32 getTreeBalance();
 
 
-		static int32 getTreeBalance();
+		float32 getTreeQuality();
 
 
-		static float32 getTreeQuality();
+		bool getWarmStarting();
 
 
-		static bool getWarmStarting();
+		bool isLocked();
 
 
-		static bool isLocked();
+		void queryAABB(b2QueryCallback *callback, const b2AABB &aabb);
 
 
-		static void queryAABB(b2QueryCallback *callback, const b2AABB &aabb);
+		void rayCast(b2RayCastCallback *callback, const b2Vec2 &point1, const b2Vec2 &point2);
 
 
-		static void rayCast(
-			b2RayCastCallback *callback,
-			const b2Vec2 &point1,
-			const b2Vec2 &point2
-		);
+		void setAllowSleeping(bool flag);
 
 
-		static void setAllowSleeping(bool flag);
+		void setAutoClearForces(bool flag);
 
 
-		static void setAutoClearForces(bool flag);
+		void setContactFilter(b2ContactFilter *filter);
 
 
-		static void setContactFilter(b2ContactFilter *filter);
+		void setContactListener(b2ContactListener *listener);
 
 
-		static void setContactListener(b2ContactListener *listener);
+		void setContinuousPhysics(bool flag);
 
 
-		static void setContinuousPhysics(bool flag);
+		void setDestructionListener(b2DestructionListener *listener);
 
 
-		static void setDestructionListener(b2DestructionListener *listener);
+		void setGravity(const b2Vec2 &gravity);
 
 
-		static void setGravity(const b2Vec2 &gravity);
+		void setSubStepping(bool flag);
 
 
-		static void setSubStepping(bool flag);
+		void setWarmStarting(bool flag);
 
 
-		static void setWarmStarting(bool flag);
+		void shiftOrigin(const b2Vec2 &new_origin);
 
 
-		static void shiftOrigin(const b2Vec2 &new_origin);
-
-
-		static void step();
+		void step();
 
 
 	private:
-		static b2World *world;
-		static float32 time_step;
-		static int32 velocity_iterations;
-		static int32 position_iterations;
-
-
-		World() = delete;
+		float32 time_step			=	0.0f;
+		int32 velocity_iterations	=	0;
+		int32 position_iterations	=	0;
 };
 
 
