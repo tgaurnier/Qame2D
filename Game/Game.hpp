@@ -25,9 +25,10 @@ class Game : public QObject {
 	public:
 		Game();
 
+
 	public slots:
-		virtual void update() = 0;
 		virtual void manageGameEvent(GameEvent *event) = 0;
+		virtual void update() = 0;
 };
 
 
