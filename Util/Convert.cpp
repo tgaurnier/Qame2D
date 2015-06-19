@@ -24,8 +24,8 @@ float Convert::pixels_per_meter = 0.0f;
  * * * * * * * * * * * * */
 
 
-void Convert::init(float Converts_per_screen_height) {
-	pixels_per_meter = qApp->primaryScreen()->size().height() / Converts_per_screen_height;
+void Convert::init(float meters_per_screen_height) {
+	pixels_per_meter = qApp->primaryScreen()->size().height() / meters_per_screen_height;
 }
 
 
